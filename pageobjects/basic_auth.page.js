@@ -9,9 +9,8 @@ class BasicAuthPage {
     await this.open(username, password);
   }
   open(username, password) {
-    return browser.url(
-      `https://${username}:${password}@the-internet.herokuapp.com/basic_auth`
-    );
+    const fullUrl = `https://${username}:${password}@the-internet.herokuapp.com/basic_auth`;
+    return browser.url(fullUrl);
   }
 }
 

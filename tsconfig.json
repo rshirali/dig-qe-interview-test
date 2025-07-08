@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "baseUrl": "./",
+    "paths": {
+      "@helpers": ["helpers/barrel.ts"],              // ✅ Update to match current layout
+      "@pageObjects": ["features/pageobjects/*.js"]   // ✅ Adjust to match your actual path
+    },
+    "types": [
+      "node",
+      "@wdio/globals/types",
+      "expect-webdriverio"
+    ]
+  },
+  "include": [
+    "features/**/*.ts",             // ✅ Use actual location of your TS files
+    "features/**/*.js",             // ✅ Support JS step defs or POs if needed
+    "config/**/*.ts",               // ✅ If your wdio.conf.ts or support utils are typed
+    "testRunners/**/*.ts",          // ✅ Your runner file
+    "custom.d.ts"                   // Optional: your type declarations
+  ]
+}

@@ -8,5 +8,5 @@ When(/^I select checkbox (\d)$/, async function (num) {
 });
 
 Then(/^The checkbox should be checked$/, async function () {
-  await expect(this.checkbox).toHaveAttribute("checked");
+  await expect(this.checkbox).toBeSelected();
 });

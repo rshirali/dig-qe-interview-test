@@ -10,7 +10,7 @@ export default class Page {
       "Basic Auth": "basic_auth",
       Checkboxes: "checkboxes",
       Dropdown: "dropdown",
-      inputs: "inputs",
+      Inputs: "inputs",
 
       "A/B Testing": "abtest",
       "Add/Remove Elements": "add_remove_elements/",
@@ -59,10 +59,18 @@ export default class Page {
     return `https://the-internet.herokuapp.com`;
   }
 
-  async click(name) {
-    const anchor = await $(`a[href="/${this.paths[name]}"]`);
-    await anchor.click();
+  async click(pageName) {
+    const cleanName = pageName.trim();
+    const path = this.paths[cleanName];
+
+    if (!path) {
+      throw new Error(`No path found for page "${cleanName}". Check spelling/casing in feature file.`);
+    }
+
+    const link = await $(`a[href="/${path}"]`);
+    await link.click();
   }
+
 
   /**
    * Opens a sub page of the page

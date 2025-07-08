@@ -17,8 +17,18 @@ We recommend using nvm to install and manage node versions. It can be found at h
 
 ## Running Tests
 
-Run tests with `npm run wdio` or `npm run wdio-headless`
+| Script                      | Command                         | Description                                                          |
+| --------------------------- | ------------------------------- | -------------------------------------------------------------------- |
+| **Run default (Chrome)**    | `npm run wdio`                  | Runs tests using default config (Chrome in non-headless mode).       |
+| **Run headless (Chrome)**   | `npm run wdio-headless`         | Runs tests in Chrome headless mode. Useful for CI environments.      |
+| **Run in Chrome**           | `npm run wdio:chrome`           | Explicitly runs tests in Chrome (non-headless).                      |
+| **Run in Chrome headless**  | `npm run wdio:chrome:headless`  | Runs tests in Chrome headless mode.                                  |
+| **Run in Firefox**          | `npm run wdio:firefox`          | Runs tests in Firefox (non-headless).                                |
+| **Run in Firefox headless** | `npm run wdio:firefox:headless` | Runs tests in Firefox headless mode.                                 |
+| **Run all browsers**        | `npm run wdio:all`              | Runs tests in both Chrome and Firefox (non-headless) in parallel.    |
+| **Run all headless**        | `npm run wdio:all:headless`     | Runs tests in both Chrome and Firefox headless in parallel (for CI). |
 
+View test execution results in `./reports/ui/allure-report/latest/index.html`
 Run specific tests with `npm run wdio -- --cucumberOpts.tagExpression="@TAG"`
 
-#### You are our only hope.
+
